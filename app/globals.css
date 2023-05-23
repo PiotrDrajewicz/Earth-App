@@ -1,8 +1,11 @@
 .canvas {
     /* background-color: lightgreen; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .canvas-section {
     height: 700px;
-    /* background-color: lightsalmon; */
+    background-color: lightsalmon;
 }

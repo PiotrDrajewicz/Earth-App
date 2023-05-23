@@ -7,9 +7,10 @@ import { OrbitControls, Stars } from "@react-three/drei";
 // import Model from './Model';
 // import { useLoader } from '@react-three/fiber'
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { Earth } from './Earth';
+// import { Earth2 } from './Earth2';
 import GetInfo from "./GetInfo";
 import { WebGL1Renderer, WebGLRenderer } from "three";
+import { Model } from './EarthCones';
 
 
 const HomePage = () => {
@@ -24,8 +25,8 @@ const HomePage = () => {
                     {/* <Stars /> */}
                     <ambientLight intensity={0.5}/>
                     <directionalLight position={[-2, 5, 2]} intensity={1}/>
-                    <GetInfo />
-                    <Earth />
+                    {/* <GetInfo /> */}
+                    <Model />
                 </Canvas>
             </section>
         </>
