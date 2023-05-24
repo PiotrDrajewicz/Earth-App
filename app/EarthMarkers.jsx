@@ -5,11 +5,21 @@ Command: npx gltfjsx@6.1.11 earthMarkers.gltf
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 
 export function EarthMarkers(props) {
   const { nodes, materials } = useGLTF('/earthMarkers.gltf')
+  const rotationRef = useRef(null);
+
+  useFrame(() => {
+    if (!rotationRef.current) {
+      return;
+    }
+    rotationRef.current.rotation.y += 0.001;
+  })
+
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} ref={rotationRef} rotation={[.4 , 2.7 , 0]}>
       <mesh geometry={nodes.Object_4.geometry} material={materials['Material.001']} scale={2.19} />
       {/* <mesh geometry={nodes.Sphere.geometry} material={nodes.Sphere.material} position={[-0.48, 1.69, -1.28]} rotation={[2.35, -0.58, -0.26]} scale={-0.04} >
         <meshLambertMaterial attach='material' color='white'/>

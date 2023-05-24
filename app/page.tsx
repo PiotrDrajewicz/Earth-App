@@ -1,5 +1,7 @@
 'use client'
 
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 import { Canvas, useThree  } from "@react-three/fiber";
 // import Earth from './Earth';
 import Box from './Box';
@@ -15,8 +17,7 @@ import { Model } from './EarthBallStart3';
 import { EarthMarkers } from './EarthMarkers';
 
 
-const HomePage = () => {
-      
+const HomePage = () => {     
 
     return (
         <>
@@ -25,8 +26,8 @@ const HomePage = () => {
                 <Canvas className="canvas" >
                     <OrbitControls enableZoom={false}/>
                     {/* <Stars /> */}
-                    <ambientLight intensity={0.5}/>
-                    <directionalLight position={[-2, 5, 2]} intensity={1}/>
+                    <ambientLight intensity={0.3}/>
+                    <directionalLight position={[-2, 3, 2]} intensity={1} />
                     {/* <GetInfo /> */}
                     <EarthMarkers />
                 </Canvas>
