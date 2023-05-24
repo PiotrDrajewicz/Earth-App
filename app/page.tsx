@@ -10,7 +10,9 @@ import { OrbitControls, Stars } from "@react-three/drei";
 // import { Earth2 } from './Earth2';
 import GetInfo from "./GetInfo";
 import { WebGL1Renderer, WebGLRenderer } from "three";
-import { Model } from './EarthCones';
+import { Model } from './EarthBallStart3';
+// import { Model } from './Scene';
+import { EarthMarkers } from './EarthMarkers';
 
 
 const HomePage = () => {
@@ -26,7 +28,7 @@ const HomePage = () => {
                     <ambientLight intensity={0.5}/>
                     <directionalLight position={[-2, 5, 2]} intensity={1}/>
                     {/* <GetInfo /> */}
-                    <Model />
+                    <EarthMarkers />
                 </Canvas>
             </section>
         </>
