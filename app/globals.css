@@ -1,3 +1,13 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.title-all {
+    display: flex;
+}
+
 .canvas {
     /* background-color: lightgreen; */
     display: flex;
@@ -7,5 +17,9 @@
 
 .canvas-section {
     height: 700px;
-    /* background-color: lightsalmon; */
+    background-color: lightsalmon;
+}
+
+.page-title-section {
+    background-color: lightgreen;
 }
