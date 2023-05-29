@@ -1,11 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
 *, *::before, *::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'PT Serif', serif;
+}
+
 .title-all {
     display: flex;
+}
+
+.title-photo-section {
+    position: relative;
+    /* background-color: plum; */
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20rem;
+}
+
+.page-title-section {
+    /* width: 55%; */
+    /* background-color: lightgreen; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding-left: 20rem; */
+    /* margin-left: 20rem; */
+    /* padding-bottom: 9rem; */
+    /* align-items: center; */
+    /* padding-left: 2rem; */
+    /* padding-right: 2rem; */
+    /* padding-top: 10rem; */
+    transition: transform .3s;
+    /* margin-bottom: 5rem; */
+    /* margin-top: 13rem; */
+    transform: translate(333px, 270px);
+    position: absolute;
+    z-index: 200;
+}
+
+.page-title {
+    font-size: 80px;
+    z-index: 100;
+    position: relative;
+}
+
+.title-span {
+    color: rgb(241, 55, 55);
+}
+
+.page-subtitle {
+    font-size: 30px;
+    padding-left: 3px;
+}
+
+.city-photo {
+    /* max-width: 10%; */
+    transform: translate(1000px,430px);
+    position: absolute;
+    width: 567px;
+    height: 338px;
+    z-index: -1;
+    /* opacity: .5; */
+    /* background-color: red; */
+    /* box-shadow:  9px 10px 19px -12px rgba(66, 68, 90, 1); */
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+}
+
+.city-photo.show {
+    opacity: 1;
+    transform: translate(1050px,430px);
+    transition: opacity 1s, transform 1s;
 }
 
 .canvas {
@@ -16,10 +88,12 @@
 }
 
 .canvas-section {
-    height: 700px;
-    background-color: lightsalmon;
-}
-
-.page-title-section {
-    background-color: lightgreen;
+    position: relative;
+    /* height: 700px; */
+    height: 100vh;
+    width: 100%;
+    /* width: 45%; */
+    /* background-color: lightsalmon; */
+    /* padding-right: 16rem; */
+    display: flex;
 }
