@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
                     <CityPhoto />
                 </section> */}
                 <section className="canvas-section">
-                    <div className={`page-title-section`}>
+                    <div className='page-title-section'>
                         <h1 className="page-title">GLOBE<span className="title-span">GUIDER</span></h1>
                         <h2 className="page-subtitle">Breathtaking adventures</h2>
                     </div>
@@ -32,6 +32,7 @@ const HomePage: React.FC = () => {
                         <EarthMarkers setCityHover={setCityHover} />
                     </Canvas>
                     <CityPhoto cityHover={cityHover} />
+                    {/* <CityPhoto cityHover={cityHover} /> */}
                 </section>
             </div>
         </>
