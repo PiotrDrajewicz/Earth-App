@@ -8,7 +8,7 @@ import { OrbitControls, Stars } from "@react-three/drei";
 // import GetInfo from "./GetInfo";
 // import { WebGL1Renderer, WebGLRenderer } from "three";
 import { EarthMarkers } from './EarthMarkers';
-import CityPhoto from "./CityPhoto";
+import CityPhotos from "./CityPhotos";
 
 
 const HomePage: React.FC = () => {
@@ -17,9 +17,6 @@ const HomePage: React.FC = () => {
     return (
         <>
             <div className="title-all">
-                {/* <section className="title-photo-section">
-                    <CityPhoto />
-                </section> */}
                 <section className="canvas-section">
                     <div className='page-title-section'>
                         <h1 className="page-title">GLOBE<span className="title-span">GUIDER</span></h1>
@@ -31,8 +28,7 @@ const HomePage: React.FC = () => {
                         <directionalLight position={[-2, 3, 2]} intensity={1} />
                         <EarthMarkers setCityHover={setCityHover} />
                     </Canvas>
-                    <CityPhoto cityHover={cityHover} />
-                    {/* <CityPhoto cityHover={cityHover} /> */}
+                    <CityPhotos cityHover={cityHover} />
                 </section>
             </div>
         </>

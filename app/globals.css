@@ -15,6 +15,7 @@ body {
     justify-content: center;
     /* align-items: center; */
     max-width: 1600px;
+    min-width: 950px;
 }
 
 .page-title-section {
@@ -56,43 +57,48 @@ body {
 
 .city-photo1 {
     /* transform: translate(1000px,430px) scale(.5); */
-    transform: translate(1050px,-100px) scale(0);
-    position: absolute;
-    border-radius: 10px;
+    /* transform: translate(1050px,-100px) scale(.35); */
+    transform: scale(.35);
+    /* position: absolute; */
+    /* border-radius: 10px; */
     /* box-shadow:  9px 10px 19px -12px rgba(66, 68, 90, 1); */
-    opacity: 0;
+    opacity: 1;
     transition: opacity 2s, transform 2s;
 }
 
 .city-photo1.show1 {
     opacity: 1;
-    transform: translate(1050px,-100px) scale(.35);
+    /* transform: translate(1050px,-100px) scale(.35); */
+    transform: scale(.35);
     transition: opacity 2s, transform 2s;
 }
 
 .city-photo2 {
     /* transform: translate(1000px,430px) scale(.5); */
-    transform: translate(1050px,150px) scale(.35);
-    position: absolute;
-    border-radius: 10px;
+    /* transform: translate(1050px,150px) scale(.35); */
+    transform: scale(.35);
+    /* position: absolute; */
+    /* border-radius: 10px; */
     /* box-shadow:  9px 10px 19px -12px rgba(66, 68, 90, 1); */
-    opacity: 0;
+    opacity: 1;
     transition: opacity .5s, transform .5s;
     transition-delay: .2s;
 }
 
 .city-photo2.show2 {
     opacity: 1;
-    transform: translate(1050px,150px) scale(.35);
+    /* transform: translate(1050px,150px) scale(.35); */
+    transform: scale(.35);
     transition: opacity .5s, transform .5s;
     transition-delay: .2s;
 }
 
 .city-photo3 {
-    transform: translate(1050px,400px) scale(.35);
+    /* transform: translate(1050px,400px) scale(.35); */
+    transform: scale(.35);
     /* transform: translate(1000px,430px) scale(.5); */
-    position: absolute;
-    border-radius: 10px;
+    /* position: absolute; */
+    /* border-radius: 10px; */
     /* box-shadow:  9px 10px 19px -12px rgba(66, 68, 90, 1); */
     opacity: 1;
     transition: opacity .5s, transform .5s;
@@ -100,10 +106,21 @@ body {
 }
 
 .city-photo3.show3 {
-    transform: translate(1050px,400px) scale(.35);
+    /* transform: translate(1050px,400px) scale(.35); */
+    transform: scale(.35);
     opacity: 1;
     transition: opacity .5s, transform .5s;
     transition-delay: .4s;
+}
+
+.city-photo-item {
+    border-radius: 10px;
+    position: absolute;
+}
+
+.city-photos-container {
+    width: 100%;
+    background-color: lightskyblue;
 }
 
 .canvas {
