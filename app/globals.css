@@ -56,18 +56,18 @@ body {
 
 .city-photo1 {
     /* transform: translate(1000px,430px) scale(.5); */
-    transform: translate(1050px,-100px) scale(.35);
+    transform: translate(1050px,-100px) scale(0);
     position: absolute;
     border-radius: 10px;
     /* box-shadow:  9px 10px 19px -12px rgba(66, 68, 90, 1); */
-    opacity: 1;
-    transition: opacity .5s, transform .5s;
+    opacity: 0;
+    transition: opacity 2s, transform 2s;
 }
 
 .city-photo1.show1 {
     opacity: 1;
     transform: translate(1050px,-100px) scale(.35);
-    transition: opacity .5s, transform .5s;
+    transition: opacity 2s, transform 2s;
 }
 
 .city-photo2 {
@@ -76,7 +76,7 @@ body {
     position: absolute;
     border-radius: 10px;
     /* box-shadow:  9px 10px 19px -12px rgba(66, 68, 90, 1); */
-    opacity: 1;
+    opacity: 0;
     transition: opacity .5s, transform .5s;
     transition-delay: .2s;
 }

@@ -42,7 +42,7 @@ export function EarthMarkers(props) {
       <mesh geometry={nodes.Sphere002.geometry} material={nodes.Sphere002.material} position={[0.01, 1.71, -1.34]} rotation={[2.47, -0.59, 0.01]} scale={-0.04} onClick={() => console.log('London')}>
         <meshLambertMaterial attach='material' color='white'/>
       </mesh>
-      <mesh geometry={nodes.Sphere003.geometry} material={nodes.Sphere003.material} position={[-0.48, 1.69, -1.28]} rotation={[2.35, -0.58, -0.26]} scale={-0.04} onClick={() => console.log('Cracow')}>
+      <mesh geometry={nodes.Sphere003.geometry} material={nodes.Sphere003.material} position={[-0.48, 1.69, -1.28]} rotation={[2.35, -0.58, -0.26]} scale={-0.04} onClick={() => console.log('Cracow')} onPointerOver={() => cityHoverHandler('Cracow')} onPointerOut={cityHoverOutHandler}>
         <meshLambertMaterial attach='material' color='white'/>
       </mesh>
       <mesh geometry={nodes.Sphere004.geometry} material={nodes.Sphere004.material} position={[0.24, 1.37, -1.66]} rotation={[2.32, -0.58, 0.13]} scale={-0.04} onClick={() => console.log('Lisbon')}>
