@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import { useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Canvas, useThree  } from "@react-three/fiber";
@@ -16,6 +17,8 @@ const HomePage: React.FC = () => {
 
     return (
         <>
+            {/* <div className="nav-wave"></div> */}
+            {/* <SvgComponent /> */}
             <div className="title-all">
                 <section className="canvas-section">
                     <div className='page-title-section'>
