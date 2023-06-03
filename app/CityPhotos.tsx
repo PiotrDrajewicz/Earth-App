@@ -19,13 +19,15 @@ const CityPhotos: React.FC<CityPhotoInterface> = ({cityHover})  => {
 
     return (
         <>
-            <h2 className={`city-name ${cityHover ? 'show-name' : ''}`}>Cracowwwwwww</h2>
             <div className="city-photos-container">
-                <img className={`city-photo-item city-photo1 ${cityHover ? 'show1' : ''}`} alt="city photo 1" src={ 
-                    isCityOpen && openedCity === 'Rome' ? `${photosUrls.Rome[0]}` :
-                    isCityOpen && openedCity === 'Cracow' ? `${photosUrls.Cracow[0]}` :
-                    '' } 
-                />  
+                <div className="cityName-img1-container">
+                    <h2 className={`city-name ${cityHover ? 'show-name' : ''}`}>{openedCity}</h2>
+                    <img className={`city-photo-item city-photo1 ${cityHover ? 'show1' : ''}`} alt="city photo 1" src={ 
+                        isCityOpen && openedCity === 'Rome' ? `${photosUrls.Rome[0]}` :
+                        isCityOpen && openedCity === 'Cracow' ? `${photosUrls.Cracow[0]}` :
+                        '' } 
+                    />
+                </div>
                 <img className={`city-photo-item city-photo2 ${cityHover ? 'show2' : ''}`} alt="city photo 2" src={ 
                     isCityOpen && openedCity === 'Rome' ? `${photosUrls.Rome[1]}` :
                     isCityOpen && openedCity === 'Cracow' ? `${photosUrls.Cracow[1]}` :
