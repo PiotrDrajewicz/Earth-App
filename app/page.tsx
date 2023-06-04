@@ -10,6 +10,8 @@ import { OrbitControls, Stars } from "@react-three/drei";
 // import { WebGL1Renderer, WebGLRenderer } from "three";
 import { EarthMarkers } from './EarthMarkers';
 import CityPhotos from "./CityPhotos";
+import wavesAboutUs from '../public/layered-waves-haikei3.svg';
+import bottomWaves from '../public/bottomWaves.svg';
 
 
 const HomePage: React.FC = () => {
@@ -34,6 +36,15 @@ const HomePage: React.FC = () => {
                     <CityPhotos cityHover={cityHover} />
                 </section>
             </div>
+            <section className="about-us-section">
+                <h2 className="about-us-title text-width">About <span className="title-span">Us</span></h2>
+                <h3 className="about-us-text text-width">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel fugiat obcaecati aliquam modi quaerat? Ea atque dicta sed iure inventore blanditiis molestias quasi eaque reprehenderit unde repellat accusamus, ad necessitatibus veniam aut quas excepturi ipsum quibusdam sequi dignissimos aspernatur eum repellendus est officia. Accusamus consectetur, mollitia ipsam dolore voluptatem quo?</h3>
+                <Image src={wavesAboutUs} alt="about us waves 1" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
+                <Image src={bottomWaves} alt="about us waves 2" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
+            </section>
+            {/* <section>
+                <h2>Lorem</h2>
+            </section> */}
         </>
 
     )
