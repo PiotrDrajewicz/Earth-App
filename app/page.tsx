@@ -42,9 +42,12 @@ const HomePage: React.FC = () => {
                 <Image src={wavesAboutUs} alt="about us waves 1" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
                 <Image src={bottomWaves} alt="about us waves 2" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
             </section>
-            {/* <section>
+            <section className="services-section">
                 <h2>Lorem</h2>
-            </section> */}
+                <svg width="153" height="864" viewBox="0 0 153 864" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M66.6079 0V222L149.608 305L66.6079 388V456C18.6079 448.667 -48.5921 462.8 66.6079 578C181.808 693.2 114.608 778 66.6079 806V864" stroke="black" stroke-width="4"/>
+                </svg>
+            </section>
         </>
 
     )
