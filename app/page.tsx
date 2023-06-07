@@ -12,10 +12,16 @@ import { EarthMarkers } from './EarthMarkers';
 import CityPhotos from "./CityPhotos";
 import wavesAboutUs from '../public/layered-waves-haikei3.svg';
 import bottomWaves from '../public/bottomWaves.svg';
+import ServicesLines from "./ServicesLines2";
+import { useInView } from "react-intersection-observer";
 
 
 const HomePage: React.FC = () => {
     const [cityHover, setCityHover] = useState<string>('');
+
+    const { ref, inView, entry } = useInView({
+        threshold: 0,
+    });
 
     return (
         <>
@@ -38,15 +44,13 @@ const HomePage: React.FC = () => {
             </div>
             <section className="about-us-section">
                 <h2 className="about-us-title text-width">About <span className="title-span">Us</span></h2>
-                <h3 className="about-us-text text-width">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel fugiat obcaecati aliquam modi quaerat? Ea atque dicta sed iure inventore blanditiis molestias quasi eaque reprehenderit unde repellat accusamus, ad necessitatibus veniam aut quas excepturi ipsum quibusdam sequi dignissimos aspernatur eum repellendus est officia. Accusamus consectetur, mollitia ipsam dolore voluptatem quo?</h3>
+                <h3 className={`about-us-text text-width`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel fugiat obcaecati aliquam modi quaerat? Ea atque dicta sed iure inventore blanditiis molestias quasi eaque reprehenderit unde repellat accusamus, ad necessitatibus veniam aut quas excepturi ipsum quibusdam sequi dignissimos aspernatur eum repellendus est officia. Accusamus consectetur, mollitia ipsam dolore voluptatem quo?</h3>
                 <Image src={wavesAboutUs} alt="about us waves 1" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
                 <Image src={bottomWaves} alt="about us waves 2" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
             </section>
             <section className="services-section">
                 <h2>Lorem</h2>
-                <svg width="153" height="864" viewBox="0 0 153 864" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M66.6079 0V222L149.608 305L66.6079 388V456C18.6079 448.667 -48.5921 462.8 66.6079 578C181.808 693.2 114.608 778 66.6079 806V864" stroke="black" stroke-width="4"/>
-                </svg>
+                <ServicesLines />
             </section>
         </>
 
