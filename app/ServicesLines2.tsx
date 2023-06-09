@@ -76,4 +76,35 @@ const ServicesLines2 = () => {
 
 // width="153" height="864"
 
+//ServicesLines.tsx notes
+    // let pathLength = pathRef.current.getTotalLength();
+    // if (path) {
+    //     console.log('tak');
+        // let pathLength = path?.getTotalLength();
+        // path.style.strokeDasharray = pathLength + ' ' + pathLength;
+        // path.style.strokeDashoffset = pathLength;
+        // window.addEventListener('scroll', () => {
+        //     var scrollPercentage = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+        
+        //     var drawLength = pathLength * scrollPercentage;
+        
+        //     path.style.strokeDashoffset = pathLength - drawLength;
+        // })
+
+        //2
+        // let pathLength = path?.getTotalLength();
+        // path.style.strokeDasharray = pathLength + ' ' + pathLength;
+        // path.style.strokeDashoffset = pathLength;
+        // window.addEventListener('scroll', () => {
+        //     var scrollPercentage = ((document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
+        
+        //     // var drawLength = (pathLength * scrollPercentage);
+        //     var drawLength = (pathLength * scrollPercentage);
+        
+        //     path.style.strokeDashoffset = (pathLength - drawLength);
+        //     console.log('s', document.documentElement.clientHeight);
+        // })
+        
+    // }
+
 export default ServicesLines2;

@@ -12,7 +12,7 @@ import { EarthMarkers } from './EarthMarkers';
 import CityPhotos from "./CityPhotos";
 import wavesAboutUs from '../public/layered-waves-haikei3.svg';
 import bottomWaves from '../public/bottomWaves.svg';
-import ServicesLines from "./ServicesLines2";
+import ServicesLines from "./ServicesLines";
 import { useInView } from "react-intersection-observer";
 
 

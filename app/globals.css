@@ -260,13 +260,38 @@ body {
 .line-container {
     text-align: center;
     overflow: hidden;
-    width: 80vw;
-    height: 80vh;
-    position: absolute;
     z-index: 10000;
+    background-color: lightsalmon;
+    height: 100vh;
+    width: 100%;
 }
 
 .line-svg {
     height: 100%;
-    display: inline-block;
+    /* display: inline-block; */
+}
+
+/* test */
+
+.all-section {
+    height: 200vh;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.random-container {
+    background-color: lightblue;
+    height: 100vh;
+}
+
+.svg-test-container {
+    background-color: lightgreen;
+    height: 100vh;
+    text-align: center;
+}
+
+.line-test-svg {
+    height: 80%;
+    /* padding-top: 20rem; */
 }
