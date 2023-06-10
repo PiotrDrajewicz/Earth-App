@@ -49,8 +49,13 @@ const HomePage: React.FC = () => {
                 <Image src={bottomWaves} alt="about us waves 2" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
             </section>
             <section className="services-section">
-                <h2>Lorem</h2>
+                <h2 className="services-title text-width" >What Do We Offer</h2>
+                <h3 id="guide-item" className="services-subtitle">Guide</h3>
+                <h3 id="transport-item" className="services-subtitle">Transport</h3>
                 <ServicesLines />
+            </section>
+            <section className="lorem-section">
+                <h2 className="lorem-title text-width">Lorem</h2>
             </section>
         </>
 
