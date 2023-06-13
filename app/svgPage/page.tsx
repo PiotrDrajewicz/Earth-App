@@ -10,13 +10,14 @@ const SvgPage: React.FC = () => {
         threshold: 0,
     });
 
+    
     function animateOnScroll(value: any) {
         let svgLength = pathRef.current.getTotalLength();
         //długość jednego
         pathRef.current.style.strokeDasharray = svgLength/1;
         pathRef.current.style.strokeDashoffset = svgLength;
         let draw = svgLength * value;
-
+        
         pathRef.current.style.strokeDashoffset = svgLength - draw;
         // console.log(value);
     }
@@ -53,7 +54,7 @@ const SvgPage: React.FC = () => {
         <section className="all-section">
 
             <div ref={randomContainer} className="random-container">
-                random
+                koko
             </div>
 
             <div ref={lineContainerRef} className="svg-test-container">
