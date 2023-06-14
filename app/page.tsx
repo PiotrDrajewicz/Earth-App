@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
     const [cityHover, setCityHover] = useState<string>('');
 
     const { ref, inView, entry } = useInView({
-        threshold: 0,
+        threshold: 0.99,
     });
 
     return (
@@ -42,17 +42,15 @@ const HomePage: React.FC = () => {
                     <CityPhotos cityHover={cityHover} />
                 </section>
             </div>
-            <section className="about-us-section">
+            <section ref={ref} className="about-us-section">
                 <h2 className="about-us-title text-width">About <span className="title-span">Us</span></h2>
                 <h3 className={`about-us-text text-width`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel fugiat obcaecati aliquam modi quaerat? Ea atque dicta sed iure inventore blanditiis molestias quasi eaque reprehenderit unde repellat accusamus, ad necessitatibus veniam aut quas excepturi ipsum quibusdam sequi dignissimos aspernatur eum repellendus est officia. Accusamus consectetur, mollitia ipsam dolore voluptatem quo?</h3>
                 <Image src={wavesAboutUs} alt="about us waves 1" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
-                <Image src={bottomWaves} alt="about us waves 2" style={{ zIndex: '-10', width: '100%', objectFit: 'cover'}} />
+                <Image src={bottomWaves} alt="about us waves 2" style={{ zIndex: '-10', width: '100%', objectFit: 'cover', transform: 'translateY(-2px)'}} />
             </section>
             <section className="services-section">
-                <h2 className="services-title text-width" >What Do We Offer</h2>
-                <h3 id="guide-item" className="services-subtitle">Guide</h3>
-                <h3 id="transport-item" className="services-subtitle">Transport</h3>
-                <ServicesLines />
+                <h2 className="services-title text-width" >What Do <span className='title-span'>We</span> Offer</h2>
+                <ServicesLines aboutUsInView={inView}/>
             </section>
             <section className="lorem-section">
                 <h2 className="lorem-title text-width">Lorem</h2>

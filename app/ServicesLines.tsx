@@ -1,7 +1,11 @@
 // 'use client'
-import { useRef } from "react";
+import { useRef, useCallback, useEffect, useState } from "react";
 import { motion } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
+
+interface ServicesLinesInterface {
+    aboutUsInView: boolean;
+}
 
 const line1Variants = {
     initial: {
@@ -12,49 +16,76 @@ const line1Variants = {
         opacity: 1,
         pathLength: 1,
         transition: {
-            duration: 5,
+            duration: 2.5,
         }
     }
 }
 
-const ServicesLines = () => {
-    const { ref, inView, entry } = useInView({
-        threshold: 0.5,
+
+const ServicesLines: React.FC<ServicesLinesInterface> = ({aboutUsInView}) => {
+
+    const { ref: ref1, inView: inView1, entry: entry1 } = useInView({
+        threshold: 0.2,
+        triggerOnce: !aboutUsInView,
     });
-    // const { ref: r, inView: i, entry: e } = useInView({
-    //     threshold: 0.5,
-    // });
-    
-    
+    const { ref: ref2, inView: inView2, entry: entry2 } = useInView({
+        threshold: 0.45,
+        triggerOnce: !aboutUsInView,
+    });
+    const { ref: ref3, inView: inView3, entry: entry3 } = useInView({
+        threshold: 0.6,
+        triggerOnce: !aboutUsInView,
+    });
+    const { ref: ref4, inView: inView4, entry: entry4 } = useInView({
+        threshold: 0.8,
+        triggerOnce: !aboutUsInView,
+    });
+    const { ref: ref5, inView: inView5, entry: entry5 } = useInView({
+        threshold: 0.95,
+        triggerOnce: !aboutUsInView,
+    });
+
+    const setRefs = useCallback(
+        (node: any) => {
+            ref1(node);
+            ref2(node);
+            ref3(node);
+            ref4(node);
+            ref5(node);
+        }
+    , [])
+
+
     return (
-        <div ref={ref} className="line-container">
-            <svg className="lines-svg" viewBox="0 0 115 444" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
-                {/* {inView && <motion.path d="M10.0879 140.07C8.74588 139.745 7.39478 140.57 7.0701 141.912C6.74543 143.254 7.57013 144.605 8.91212 144.93L10.0879 140.07ZM58.5 2.5C58.1019 0.0318972 58.0995 0.032288 58.097 0.0327004C58.096 0.0328645 58.0933 0.0333011 58.0913 0.0336327C58.0873 0.0342977 58.0828 0.0350503 58.0778 0.0358932C58.0678 0.037579 58.0559 0.0396267 58.0422 0.0420593C58.0147 0.046924 57.9797 0.0533314 57.9376 0.0614664C57.8534 0.0777314 57.7407 0.100934 57.6023 0.132564C57.3258 0.195772 56.9455 0.29297 56.4852 0.436306C55.5668 0.722313 54.3167 1.19621 52.9331 1.95939C50.1553 3.49169 46.8231 6.20313 44.6153 10.868C40.201 20.1951 40.7136 36.2833 56.3174 64.2191L60.6826 61.7809C45.2864 34.2167 45.799 20.0549 49.1347 13.007C50.8019 9.48437 53.2822 7.47706 55.3481 6.33748C56.3865 5.76473 57.316 5.41441 57.9718 5.21018C58.2987 5.1084 58.5541 5.04397 58.7165 5.00684C58.7976 4.9883 58.8552 4.97665 58.8864 4.97061C58.9021 4.96759 58.9111 4.96598 58.9131 4.96561C58.9142 4.96543 58.9135 4.96556 58.911 4.96598C58.9097 4.96619 58.908 4.96648 58.9059 4.96683C58.9048 4.96701 58.9029 4.96733 58.9023 4.96741C58.9003 4.96775 58.8981 4.9681 58.5 2.5ZM56.3174 64.2191C71.726 91.8055 75.0545 108.621 73.8903 119.099C72.7523 129.341 67.2831 133.924 63.4235 137.06L66.5765 140.94C70.7169 137.576 77.4977 131.909 78.8597 119.651C80.1955 107.629 76.274 89.6945 60.6826 61.7809L56.3174 64.2191ZM63.4235 137.06C56.3148 142.836 40.7786 147.495 10.0879 140.07L8.91212 144.93C40.2214 152.505 57.6852 148.164 66.5765 140.94L63.4235 137.06Z" stroke='black' variants={line1Variants} initial='initial' animate='visible'/>} */}
-
-                <motion.linearGradient id='lineGradient'>
-                    <stop offset='0' stopColor="green">
-                        <animate dur='2s' attributeName="offset" fill="freeze" from='1' to='2' />
-                    </stop>
-                    <stop offset='0' stopColor="red">
-                        <animate dur='2s' attributeName="offset" fill="freeze" from='1' to='2' />
-                    </stop>
-                </motion.linearGradient>
-                
-<svg width="73" height="149" viewBox="0 0 73 149" xmlns="http://www.w3.org/2000/svg">
-<motion.path fill-rule="evenodd" clip-rule="evenodd" d="M51.097 0.032695C51.0995 0.0322825 51.1019 0.0318918 51.5 2.49999C51.8981 4.9681 51.9003 4.96774 51.9023 4.96741L51.9059 4.96682L51.911 4.96598L51.8865 4.9706C51.8552 4.97664 51.7976 4.98829 51.7165 5.00683C51.5541 5.04397 51.2987 5.10839 50.9719 5.21017C50.3161 5.4144 49.3865 5.76472 48.3482 6.33748C46.2823 7.47705 43.8019 9.48437 42.1347 13.007C38.799 20.0549 38.2864 34.2167 53.6826 61.7809C69.274 89.6945 73.1955 107.629 71.8597 119.651C70.4977 131.909 63.717 137.576 59.5765 140.94C50.6852 148.164 33.2215 152.505 1.91215 144.93C0.570154 144.605 -0.254546 143.254 0.0701303 141.912C0.394806 140.57 1.74591 139.745 3.0879 140.07C33.7786 147.495 49.3148 142.836 56.4235 137.06C60.2831 133.924 65.7523 129.341 66.8903 119.099C68.0545 108.621 64.726 91.8055 49.3174 64.2191C33.7136 36.2833 33.201 20.195 37.6153 10.868C39.8231 6.20312 43.1553 3.49169 45.9331 1.95938C47.3167 1.1962 48.5668 0.722308 49.4852 0.4363C49.9455 0.292965 50.3258 0.195766 50.6023 0.132559C50.7407 0.100928 50.8535 0.0777258 50.9376 0.0614609C50.9797 0.0533258 51.0147 0.0469183 51.0422 0.0420536L51.0778 0.0358876L51.0913 0.0336272L51.097 0.032695ZM51.9132 4.96561C51.9142 4.96542 51.9135 4.96555 51.911 4.96598L51.9132 4.96561Z" variants={line1Variants} initial='initial' animate='visible' fill='url(#lineGradient)' />
-</svg>
-{/* <svg width="73" height="149" viewBox="0 0 73 149" fill="none" xmlns="http://www.w3.org/2000/svg">
-<motion.path fill-rule="evenodd" clip-rule="evenodd" d="M51.097 0.032695C51.0995 0.0322825 51.1019 0.0318918 51.5 2.49999C51.8981 4.9681 51.9003 4.96774 51.9023 4.96741L51.9059 4.96682L51.911 4.96598L51.8865 4.9706C51.8552 4.97664 51.7976 4.98829 51.7165 5.00683C51.5541 5.04397 51.2987 5.10839 50.9719 5.21017C50.3161 5.4144 49.3865 5.76472 48.3482 6.33748C46.2823 7.47705 43.8019 9.48437 42.1347 13.007C38.799 20.0549 38.2864 34.2167 53.6826 61.7809C69.274 89.6945 73.1955 107.629 71.8597 119.651C70.4977 131.909 63.717 137.576 59.5765 140.94C50.6852 148.164 33.2215 152.505 1.91215 144.93C0.570154 144.605 -0.254546 143.254 0.0701303 141.912C0.394806 140.57 1.74591 139.745 3.0879 140.07C33.7786 147.495 49.3148 142.836 56.4235 137.06C60.2831 133.924 65.7523 129.341 66.8903 119.099C68.0545 108.621 64.726 91.8055 49.3174 64.2191C33.7136 36.2833 33.201 20.195 37.6153 10.868C39.8231 6.20312 43.1553 3.49169 45.9331 1.95938C47.3167 1.1962 48.5668 0.722308 49.4852 0.4363C49.9455 0.292965 50.3258 0.195766 50.6023 0.132559C50.7407 0.100928 50.8535 0.0777258 50.9376 0.0614609C50.9797 0.0533258 51.0147 0.0469183 51.0422 0.0420536L51.0778 0.0358876L51.0913 0.0336272L51.097 0.032695ZM51.9132 4.96561C51.9132 4.96561 51.9135 4.96555 51.911 4.96598L51.9132 4.96561Z" stroke='black' variants={line1Variants} initial='initial' animate='visible' vectorEffect='fixed-position'/>
-</svg> */}
-
-
-
-
-                {/* stare */}
-                <path d="M57.5 207.5L59.6438 206.214L59.6438 206.214L57.5 207.5ZM112.762 227.381C114.077 226.96 114.802 225.553 114.381 224.238C113.96 222.923 112.553 222.198 111.238 222.619L112.762 227.381ZM55.563 150.42C47.147 160.734 41.3128 185.38 55.3563 208.786L59.6438 206.214C46.6873 184.62 52.3501 162.266 59.437 153.58L55.563 150.42ZM55.3563 208.786C63.8547 222.95 75.0188 228.741 85.768 230.348C96.3773 231.933 106.394 229.419 112.762 227.381L111.238 222.619C105.106 224.581 95.9728 226.817 86.507 225.402C77.1812 224.009 67.3454 219.05 59.6438 206.214L55.3563 208.786Z" fill="#F13737"/>
-                <path d="M57.5 278.5L55.3562 277.214L55.3562 277.214L57.5 278.5ZM2.23802 298.381C0.922999 297.96 0.198094 296.553 0.618901 295.238C1.03971 293.923 2.44688 293.198 3.7619 293.619L2.23802 298.381ZM59.437 221.42C67.853 231.734 73.6872 256.38 59.6437 279.786L55.3562 277.214C68.3127 255.62 62.6499 233.266 55.563 224.58L59.437 221.42ZM59.6437 279.786C51.1453 293.95 39.9812 299.741 29.232 301.348C18.6227 302.933 8.60606 300.419 2.23802 298.381L3.7619 293.619C9.89386 295.581 19.0272 297.817 28.493 296.402C37.8188 295.009 47.6546 290.05 55.3562 277.214L59.6437 279.786Z" fill="#F13737"/>
-                <path d="M57.1101 349.5L59.2539 348.214L59.2539 348.214L57.1101 349.5ZM112.372 369.381C113.687 368.96 114.412 367.553 113.991 366.238C113.57 364.923 112.163 364.198 110.848 364.619L112.372 369.381ZM55.1731 292.42C46.7571 302.734 40.9229 327.38 54.9664 350.786L59.2539 348.214C46.2974 326.62 51.9602 304.266 59.0471 295.58L55.1731 292.42ZM54.9664 350.786C63.4648 364.95 74.629 370.741 85.3781 372.348C95.9874 373.933 106.004 371.419 112.372 369.381L110.848 364.619C104.716 366.581 95.5829 368.817 86.1171 367.402C76.7913 366.009 66.9555 361.05 59.2539 348.214L54.9664 350.786Z" fill="#F13737"/>
-                <path d="M57.5 420.5L55.3562 419.214L55.3562 419.214L57.5 420.5ZM2.23802 440.381C0.922999 439.96 0.198094 438.553 0.618901 437.238C1.03971 435.923 2.44688 435.198 3.7619 435.619L2.23802 440.381ZM59.437 363.42C67.853 373.734 73.6872 398.38 59.6437 421.786L55.3562 419.214C68.3127 397.62 62.6499 375.266 55.563 366.58L59.437 363.42ZM59.6437 421.786C51.1453 435.95 39.9812 441.741 29.232 443.348C18.6227 444.933 8.60606 442.419 2.23802 440.381L3.7619 435.619C9.89386 437.581 19.0272 439.817 28.493 438.402C37.8188 437.009 47.6546 432.05 55.3562 419.214L59.6437 421.786Z" fill="#F13737"/>
+        <div ref={setRefs} className="line-container">
+            <div className="services-text-container">
+                <article className="services-article">
+                    {inView1 && <motion.h3 id="guide-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(-200px)'}} transition={{duration: 2, delay: 0.6}}>Guide</motion.h3>}
+                    {inView1 && <motion.p id="guide-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(-200px)' }} transition={{duration: 2, delay: 0.8}}>We offer local guide</motion.p>}
+                </article>
+                <article className="services-article">
+                    {inView2 && <motion.h3 id="transport-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(200px)'}} transition={{duration: 2, delay: 0.8}}>Transport</motion.h3>}
+                    {inView2 && <motion.p id="guide-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(200px)' }} transition={{duration: 2, delay: 0.6}}>You will get around</motion.p>}
+                </article>
+                <article className="services-article">
+                    {inView3 && <motion.h3 id="dinner-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(-200px)'}} transition={{duration: 2, delay: 0.6}}>Dinner</motion.h3>}
+                    {inView3 && <motion.p id="guide-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(-200px)' }} transition={{duration: 2, delay: 0.8}}>Hot meal for everyone</motion.p>}
+                </article>
+                <article className="services-article">
+                    {inView4 && <motion.h3 id="freeTime-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(200px)'}} transition={{duration: 2, delay: 0.8}}>Free time</motion.h3>}
+                    {inView4 && <motion.p id="guide-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(200px)' }} transition={{duration: 2, delay: 0.6}}>On hour to walk around</motion.p>}
+                </article>
+                <article className="services-article">
+                    {inView5 && <motion.h3 id="souvenir-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(-200px)'}} transition={{duration: 2, delay: 0.6}}>Souvenir</motion.h3>}
+                    {inView5 && <motion.p id="guide-item" className="services-subtitle" initial={{opacity: 0}} animate={{opacity: 1, transform: 'translateX(-200px)' }} transition={{duration: 2, delay: 0.8}}>Opportunity to buy souvenir from local artist</motion.p>}
+                </article>
+            </div>
+            <svg className="lines-svg" viewBox="-3 0 116 444" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+                {inView1 && <motion.path d="M56.5 2.5C50.5 3.83333 39.4 11.3 43 30.5C47.5 54.5 74 80 74 118.5C74 157 12.5 143.5 6.5 143" stroke="#F13737" strokeWidth="5" variants={line1Variants} initial='initial' animate='visible' strokeLinecap='round'/>}
+                {inView2 && <motion.path d="M55.5 152C47.7486 161.5 42 185 55.5 207.5C71.7 234.5 97.5 229 110 225" stroke="#F13737" strokeWidth="5" variants={line1Variants} initial='initial' animate='visible' strokeLinecap='round'/>}
+                {inView3 && <motion.path d="M55.5 223C63.2514 232.5 69 256 55.5 278.5C39.3 305.5 13.5 300 0.999962 296" stroke="#F13737" strokeWidth="5" variants={line1Variants} initial='initial' animate='visible' strokeLinecap='round'/>}
+                {inView4 && <motion.path d="M55.1101 294C47.3587 303.5 41.6101 327 55.1101 349.5C71.3101 376.5 97.1101 371 109.61 367" stroke="#F13737" strokeWidth="5" variants={line1Variants} initial='initial' animate='visible' strokeLinecap='round'/>}
+                {inView5 && <motion.path d="M55.5 365C63.2514 374.5 69 398 55.5 420.5C39.3 447.5 13.5 442 0.999962 438" stroke="#F13737" strokeWidth="5" variants={line1Variants} initial='initial' animate='visible' strokeLinecap='round'/>}
             </svg>
         </div>
     )

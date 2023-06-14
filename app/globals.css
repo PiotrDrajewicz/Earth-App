@@ -269,18 +269,52 @@ body {
     font-size: 40px;
 }
 
-.services-subtitle {
-    position: absolute;
-}
 
 .line-container {
     text-align: center;
     overflow: hidden;
     /* z-index: 10000; */
-    background-color: lightsalmon;
+    /* background-color: lightsalmon; */
     height: 100vh;
     width: 100%;
     margin-top: 5rem;
+    position: relative;
+}
+
+.services-text-container {
+    /* background-color: blueviolet; */
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24vh;
+    z-index: -100;
+}
+
+.services-article {
+    display: flex;
+    flex-direction: column;
+    /* background-color: green; */
+    align-items: flex-start;
+    max-width: 50%;
+}
+
+
+#transport-item {
+    margin-top: 13vh;
+}
+
+#dinner-item {
+    margin-top: 11vh;
+}
+
+#freeTime-item {
+    margin-top: 11vh;
+}
+
+#souvenir-item {
+    margin-top: 11vh;
 }
 
 .lines-svg {
@@ -288,9 +322,10 @@ body {
     /* display: inline-block; */
 }
 
+
 .lorem-section {
     width: 100%;
-    height: 100vh;
+    height: 200vh;
 }
 
 .lorem-title {
