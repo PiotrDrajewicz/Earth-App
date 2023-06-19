@@ -52,8 +52,8 @@ const HomePage: React.FC = () => {
                 <h2 className="services-title text-width" >What Do <span className='title-span'>We</span> Offer</h2>
                 <ServicesLines aboutUsInView={inView}/>
             </section>
-            <section className="lorem-section">
-                <h2 className="lorem-title text-width">Lorem</h2>
+            <section className="guides-section">
+                <h2 className="guides-title text-width">Meet Our Guides</h2>
             </section>
         </>
 
