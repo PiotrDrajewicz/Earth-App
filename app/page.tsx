@@ -14,6 +14,7 @@ import wavesAboutUs from '../public/layered-waves-haikei3.svg';
 import bottomWaves from '../public/bottomWaves.svg';
 import ServicesLines from "./ServicesLines";
 import { useInView } from "react-intersection-observer";
+import GuidesComponent from "./GuidesComponent";
 
 
 const HomePage: React.FC = () => {
@@ -53,7 +54,8 @@ const HomePage: React.FC = () => {
                 <ServicesLines aboutUsInView={inView}/>
             </section>
             <section className="guides-section">
-                <h2 className="guides-title text-width">Meet Our Guides</h2>
+                <h2 className="guides-title text-width">Meet <span className="title-span">Our</span> Guides</h2>
+                <GuidesComponent />
             </section>
         </>
 
