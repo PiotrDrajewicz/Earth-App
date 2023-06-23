@@ -10,6 +10,31 @@ import { useCallback } from 'react';
 
 const GuidesComponent: React.FC = () => {
 
+    const staggerParent = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.3
+            }
+        }
+    }
+
+    const staggerChildren = {
+        hidden: {
+            // transform: 'translateX(-500px)',
+            x: -100,
+            opacity: 0
+        },
+        visible: {
+            // transform: 'translateX(0px)',
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 5,
+            }
+        }
+    }
+
     const { ref: ref1, inView: inView1, entry: entry1 } = useInView({
         threshold: 0.5,
         // triggerOnce: !aboutUsInView,
@@ -38,21 +63,21 @@ const GuidesComponent: React.FC = () => {
     return (
         <div ref={setRefs} className="guides-container">
             <div className="guides-texts">
-                <article className="guide-item">
-                    {inView1 && <motion.h3 className="guide-item-name" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{ opacity: 1}} transition={{duration: 2, delay: 0.8}}>Marianne</motion.h3>}
-                    {inView1 && <motion.p className="guide-item-description" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: 0.6}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>}
-                    {inView1 && <motion.div className="guide-item-underline" initial={{width: '0%'}} animate={{width: '100%'}} transition={{duration: 1, delay: 3}}></motion.div>}
-                </article>
-                <article className="guide-item">
-                    {inView1 && <motion.h3 className="guide-item-name" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{ opacity: 1}} transition={{duration: 2, delay: 0.8}}>Tom</motion.h3>}
-                    {inView1 && <motion.p className="guide-item-description" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: 0.6}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>}
-                    {inView1 && <motion.div className="guide-item-underline" initial={{width: '0%'}} animate={{width: '100%'}} transition={{duration: 1, delay: 3}}></motion.div>}
-                </article>
-                <article className="guide-item">
-                    {inView1 && <motion.h3 className="guide-item-name" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{transform: 'translateX(0px)', opacity: 1}} transition={{duration: 2, delay: 0.8}}>Suzanne</motion.h3>}
-                    {inView1 && <motion.p className="guide-item-description" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{transform: 'translateX(0px)', opacity: 1}} transition={{duration: 2, delay: 0.6}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>}
-                    {inView1 && <motion.div className="guide-item-underline" initial={{width: '0%'}} animate={{width: '100%'}} transition={{duration: .5, delay: 3}}></motion.div>}
-                </article>
+                <motion.article className="guide-item" variants={staggerParent} initial='hidden' animate='visible'>
+                    <motion.h3 className="guide-item-name" variants={staggerChildren} initial='hidden' animate='visible' >Marianne</motion.h3>
+                    <motion.p className="guide-item-description" variants={staggerChildren} initial='hidden' animate='visible'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>
+                    <motion.div className="guide-item-underline" variants={staggerChildren} initial='hidden' animate='visible'></motion.div>
+                </motion.article>
+                <motion.article className="guide-item" variants={staggerParent} initial='hidden' animate='visible'>
+                    <motion.h3 className="guide-item-name" variants={staggerChildren} initial='hidden' animate='visible'>Tom</motion.h3>
+                    <motion.p className="guide-item-description" variants={staggerChildren} initial='hidden' animate='visible'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>
+                    <motion.div className="guide-item-underline" variants={staggerChildren} initial='hidden' animate='visible'></motion.div>
+                </motion.article>
+                <motion.article className="guide-item" variants={staggerParent} initial='hidden' animate='visible'>
+                    <motion.h3 className="guide-item-name" variants={staggerChildren} initial='hidden' animate='visible'>Suzanne</motion.h3>
+                    <motion.p className="guide-item-description" variants={staggerChildren} initial='hidden' animate='visible'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>
+                    <motion.div className="guide-item-underline" variants={staggerChildren} initial='hidden' animate='visible'></motion.div>
+                </motion.article>
                 {inView3 && <motion.div className="guides-button" initial={{scale: 0}} animate={{scale: 1}} transition={{duration: 1, type: 'spring', stiffness: 260, damping: 20}}>And many more</motion.div>}
             </div>
             <div className="guides-photos">
@@ -66,5 +91,22 @@ const GuidesComponent: React.FC = () => {
         </div>
     )
 }
+
+{/* <article className="guide-item">
+{inView1 && <motion.h3 className="guide-item-name" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{ opacity: 1}} transition={{duration: 2, delay: 0.8}}>Marianne</motion.h3>}
+{inView1 && <motion.p className="guide-item-description" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: 0.6}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>}
+{inView1 && <motion.div className="guide-item-underline" initial={{width: '0%'}} animate={{width: '100%'}} transition={{duration: 1, delay: 3}}></motion.div>}
+</article>
+<article className="guide-item">
+{inView1 && <motion.h3 className="guide-item-name" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{ opacity: 1}} transition={{duration: 2, delay: 0.8}}>Tom</motion.h3>}
+{inView1 && <motion.p className="guide-item-description" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: 0.6}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>}
+{inView1 && <motion.div className="guide-item-underline" initial={{width: '0%'}} animate={{width: '100%'}} transition={{duration: 1, delay: 3}}></motion.div>}
+</article>
+<article className="guide-item">
+{inView1 && <motion.h3 className="guide-item-name" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{transform: 'translateX(0px)', opacity: 1}} transition={{duration: 2, delay: 0.8}}>Suzanne</motion.h3>}
+{inView1 && <motion.p className="guide-item-description" initial={{transform: 'translateX(-500px)', opacity: 0}} animate={{transform: 'translateX(0px)', opacity: 1}} transition={{duration: 2, delay: 0.6}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias ipsum voluptas vitae adipisci omnis. Repudiandae ad similique deleniti ipsum perspiciatis!</motion.p>}
+{inView1 && <motion.div className="guide-item-underline" initial={{width: '0%'}} animate={{width: '100%'}} transition={{duration: .5, delay: 3}}></motion.div>}
+</article>
+{inView3 && <motion.div className="guides-button" initial={{scale: 0}} animate={{scale: 1}} transition={{duration: 1, type: 'spring', stiffness: 260, damping: 20}}>And many more</motion.div>} */}
 
 export default GuidesComponent;
