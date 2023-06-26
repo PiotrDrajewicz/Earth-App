@@ -32,10 +32,6 @@ body {
 .title-all {
     display: flex;
     justify-content: center;
-    /* height: 50vh; */
-    /* align-items: center; */
-    /* max-width: 1600px;
-    min-width: 950px; */
 }
 
 .page-title-section {
@@ -44,19 +40,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* padding-left: 20rem; */
-    /* padding-bottom: 9rem; */
-    /* align-items: center; */
-    /* padding-left: 2rem; */
-    /* padding-right: 2rem; */
-    /* padding-top: 10rem; */
-    /* margin-bottom: 5rem; */
-    /* margin-top: 14%; */
     margin-top: 28vh;
     margin-left: 12rem;
-    /* transform: translate(333px, 270px); */
     position: absolute;
-    /* position: initial; */
     z-index: 200;
 }
 
